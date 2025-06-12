@@ -8,8 +8,35 @@ import clsx from "clsx";
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 
+
+
+import {useParams} from 'next/navigation';
+import {Locale} from 'next-intl';
+import {ChangeEvent, ReactNode, useTransition} from 'react';
+import {usePathname, useRouter} from '@/i18n/navigation';
+
 const NavMenu = () => {
   const t = useTranslations("NavigationMenu");
+
+
+  const router = useRouter();
+  const [isPending, startTransition] = useTransition();
+  const pathname = usePathname();
+  const params = useParams();
+
+function onSelectChange(event: ChangeEvent<HTMLSelectElement>) {
+    const nextLocale = event.target.value as Locale;
+    startTransition(() => {
+      router.replace(
+        // @ts-expect-error -- TypeScript will validate that only known `params`
+        // are used in combination with a given `pathname`. Since the two will
+        // always match for the current route, we can skip runtime checks.
+        {pathname, params},
+        {locale: nextLocale}
+      );
+    });
+  }
+
 
   return (
     <NavigationMenu.Root className={styles.Root}>
@@ -118,6 +145,11 @@ const NavMenu = () => {
             Ru <CaretDownIcon className={styles.CaretDown} aria-hidden />
           </NavigationMenu.Trigger>
           <NavigationMenu.Content className={styles.Content}>
+              {/* <select onChange={onSelectChange}>
+                  <option>ru</option>
+                  <option>en</option>
+              </select> */}
+
             <ul className={`${styles.List} two`}>
               <ListItem
                 title="Introduction"

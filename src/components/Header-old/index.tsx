@@ -1,31 +1,12 @@
-"use client";
-
-import Link from "next/link";
-import {useTranslations} from 'next-intl';
-import Logo from "../icons/logo";
+import clsx from "clsx";
+import Logo from ".././icons/logo";
 import styles from "./styles.module.css";
 import Hamburger from "../Hamburger";
-import { usePathname } from "next/navigation";
-import clsx from "clsx";
-import NavigationMenu from "./NavigationMenu";
-import LocaleSwitcher from "../LocaleSwitcher";
+import { Link } from "@/i18n/navigation";
 
 const index = () => {
-  const pathname = usePathname();
-
- 
-
   return (
     <header className={styles.header}>
-      {/* <Link className={pathname === '/'? clsx(styles.activeLink, styles.logo): styles.logo} href="/">
-        <Logo></Logo>
-      </Link> */}
-
-      
-
-      <NavigationMenu></NavigationMenu>
-      <LocaleSwitcher></LocaleSwitcher>
-      {/* 
       <NavLink
         draggable={false}
         to="/kafedra"
@@ -50,8 +31,8 @@ const index = () => {
             />
           );
         }}
-      </NavLink> */}
-      {/* 
+      </NavLink>
+
       <nav className={styles.nav}>
         <ul className={styles.ul}>
           <li>
@@ -62,6 +43,11 @@ const index = () => {
             >
               ПРЕПОДАВАТЕЛИ
             </NavLink>
+
+            <Link
+              className={styles.ListItemLink}
+              href="prepodavateli"
+            >ПРЕПОДАВАТЕЛИ</Link>
           </li>
           <li>
             <NavLink
@@ -101,7 +87,7 @@ const index = () => {
           </li>
         </ul>
       </nav>
-      <Hamburger></Hamburger> */}
+      <Hamburger></Hamburger>
     </header>
   );
 };

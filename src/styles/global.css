@@ -4,3 +4,372 @@
 @import url(./ui/ui.css);
 @import url(./color.css);
 
+:root {
+  /* COLORS */
+  --background-color-main: #ffffff;
+  --background-color-1: #ffffff;
+  --background-color-2: #f1f1f1;
+  --background-color-3: #a694ff;
+  --background-color-4: #ffedec;
+  --accent-color-main: #a694ff;
+  /* --accent-color-main: #8291FF; */
+  --text-color-dull: #988db9;
+  --text-color-regular: #201541;
+  --text-color-bright: #680aff;
+  --text-color-opposite: #ffffff;
+  --logo-color-dark: #1f1440;
+  --text-color-dull-2: #d4d4d4;
+  --text-color-dull-3: #8f8f8f;
+
+  /* FONTS */
+  --font-size-big: 32px;
+  --font-size-medium: 26px;
+  --font-size-regular: 24px;
+  --font-size-small: 16px;
+
+  --font-weight-bold: 700;
+  --font-weight-regular: 400;
+  --font-weight-extraLight: 200;
+
+  --font-family-regular: "Onest";
+  --font-family-accent: "NEUTRALFACE";
+
+  /* SPACING */
+  --spacing-xl: 2.2rem;
+  --spacing-l: 1.5rem;
+  --spacing-m: 1rem;
+  --spacing-s: 0.4rem;
+  --spacing-xs: 0.2rem;
+
+  --padding-hor: 1.2rem;
+
+  --border-default: 0.02rem solid var(--text-color-regular);
+  --border-opposite: 0.02rem solid var(--text-color-opposite);
+  --transition-default: all 0.3s ease-in-out;
+
+  --min-width: 300px;
+
+  --gradient-2: linear-gradient(
+    rgba(0, 0, 1, 0.039) 0%,
+    rgba(0, 0, 1, 0) 15%,
+    rgba(0, 0, 1, 0.151) 75%,
+    #00000053 90%,
+    rgba(0, 0, 0, 0.42) 100%
+  );
+}
+
+
+
+
+
+html {
+  
+  scroll-behavior: smooth;
+
+  -webkit-overflow-scrolling: touch;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  background-color: transparent;
+
+  ::-webkit-scrollbar {
+    height: 0.2rem;
+    width: 0.2rem;
+    color: transparent;
+  }
+
+  /* Фон скроллбара */
+  ::-webkit-scrollbar-track {
+    background-color: #4a4a4a;
+    border-radius: 0px;
+    
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--background-color-3);
+    border-radius: 0;
+  }
+
+  /*Mobile */
+  /* padding: 0rem 1rem; */
+  font-size: var(--font-size-small);
+  /* overflow: hidden; */
+
+  /*Tablet */
+  @media (min-width: 768px) {
+    /* padding: 0rem 1rem; */
+    font-size: var(--font-size-regular);
+  }
+  /*LAPTOP */
+  @media (min-width: 1024px) {
+    /* padding: 0rem 1rem; */
+    font-size: var(--font-size-medium);
+  }
+  /*PC */
+  @media (min-width: 1440px) {
+    /* padding: 0rem 1rem; */
+    font-size: var(--font-size-big);
+  }
+
+  height: 100vh;
+  min-width: var(--min-width);
+  font-family: Onest;
+  width: 100%;
+  display: block;
+  background-color: transparent;
+  overflow-x: hidden;
+  @media (max-width: 300px) {
+    overflow-x: scroll;
+  }
+}
+
+main {
+  padding-top: var(--spacing-l);
+}
+
+section {
+  background-color: #ffffff;
+  padding: 0 var(--padding-hor);
+  padding-bottom: 5vmax;
+  padding-top: 0.1rem;
+  display: block;
+}
+
+section:nth-of-type(2n) {
+  background-color: var(--text-color-bright);
+}
+
+section:nth-of-type(3n) {
+  background-color: var(--text-color-bright);
+}
+
+h3 {
+  font-size: 1.2rem;
+  font-family: var(--font-family-regular);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-color-regular);
+  @media (min-width: 768px) {
+    font-size: 1rem;
+    line-height: 1.3rem;
+  }
+}
+
+h4 {
+  font-size: 1.2rem;
+  font-family: var(--font-family-regular);
+  font-weight: var(--font-weight-extraLight);
+  color: var(--text-color-dull-2);
+  @media (min-width: 768px) {
+    font-size: 1rem;
+    line-height: 1.3rem;
+  }
+}
+
+h2 {
+  font-size: 1.2rem;
+  font-family: var(--font-family-regular);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-color-regular);
+  @media (min-width: 768px) {
+    font-size: 1.3rem;
+    line-height: 1.3rem;
+  }
+  @media (min-width: 1200px) {
+    font-size: 1.3rem;
+    line-height: 1.3rem;
+  }
+}
+h2.alt {
+  color: var(--text-color-opposite);
+}
+
+h1 {
+  margin-top: 4vmax;
+  margin-bottom: 5vmax;
+  font-size: 1.4rem;
+  font-family: var(--font-family-accent);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-color-regular);
+  @media (min-width: 768px) {
+    font-size: 1.5rem;
+    /* line-height: 1.5rem; */
+  }
+  @media (min-width: 1200px) {
+    font-size: 1.8rem;
+    /* line-height: 1.8rem; */
+  }
+}
+
+h1.alt {
+  color: var(--text-color-opposite);
+}
+
+p {
+  font-family: var(--font-family-regular);
+  color: var(--text-color-regular);
+  font-weight: var(--font-weight-regular);
+  font-size: 1rem;
+  @media (min-width: 768px) {
+    font-size: 0.7rem;
+  }
+}
+
+p.alt {
+  color: #d8d8d8;
+}
+
+p.alt2 {
+  color: var(--text-color-opposite);
+  font-size: 1.3rem;
+  /* max-width: 90%; */
+  @media (min-width: 768px) {
+    font-size: 0.9rem;
+  }
+  @media (max-width: 768px) {
+    max-width: 90%;
+  }
+}
+
+/*subtext*/
+small {
+  font-family: var(--font-family-regular);
+  color: var(--text-color-dull);
+  font-weight: var(--font-weight-extraLight);
+  font-size: 0.8rem;
+  @media (min-width: 768px) {
+    font-size: 0.7rem;
+  }
+}
+
+small.alt {
+  color: var(--text-color-dull-2);
+}
+
+/*important text*/
+b {
+  color: var(--text-color-regular);
+  font-family: var(--font-family-accent);
+  font-size: 0.65rem;
+}
+
+iframe {
+  border-radius: 1rem;
+  border: none;
+  outline: none;
+  @media (min-width: 768px) {
+  }
+}
+
+strong {
+  color: var(--text-color-bright);
+}
+
+strong.alt {
+  color: var(--background-color-4);
+}
+
+article {
+  color: var(--text-color-regular);
+  font-weight: var(--font-weight-regular);
+  font-size: 1rem;
+  padding: 0.1rem;
+  @media (min-width: 768px) {
+    font-size: 0.7rem;
+  }
+}
+
+a {
+  cursor: pointer;
+  font-size: 0.6rem;
+  font-weight: bold;
+  color: var(--text-color-regular);
+  list-style: none;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 0.2rem 0.2rem;
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+  
+  @media (min-width: 1350px) {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.4rem;
+  }
+  border: var(--border-default);
+  border-color: transparent;
+}
+
+a.left {
+  text-align: left;
+  width: fit-content;
+}
+
+li {
+  text-align: center;
+}
+
+a:hover {
+  /* font-size: 0.63rem; */
+  border-color: var(--accent-color-main);
+  color: var(--background-color-3);
+  /* background-color: var(--background-color-2); */
+}
+
+.mobileHidden {
+  @media (max-width: 1200px) {
+    display: none;
+  }
+}
+
+.mobileHidden {
+  border: none;
+}
+
+.wideScreenHidden {
+  @media (min-width: 1201px) {
+    display: none;
+  }
+}
+
+.wideScreenHidden {
+  border: none;
+}
+
+.textCall {
+  border: 1px solid var(--accent-color-main);
+  font-family: var(--font-family-regular);
+  color: var(--text-color-regular);
+  font-weight: var(--font-weight-regular);
+  font-size: 1rem;
+  @media (min-width: 768px) {
+    font-size: 0.7rem;
+  }
+}
+
+.textCall:hover {
+  font-size: 0.8rem;
+  border: 1px solid var(--text-color-bright);
+}
+
+.ending {
+  width: 100%;
+  height: 20vh;
+  @media (min-width: 768px) {
+    height: 10vh;
+  }
+}
+
+hr {
+  width: 100vw;
+  height: 0.02rem;
+}
+
+/* <Route path="/kafedra/raboti_studentov" element={<WorksPage />} />
+<Route path="*" element={<MainPage />} />
+<Route path="/kafedra/karta" element={<Map />} />
+<Route path="/kafedra/vkr" element={<VkrPage />} />
+<Route path="/kafedra/raspisanie" element={<ShedulePage />} />
+<Route path="/kafedra/prepodavateli" element={<TeachersPage />} /> */
+
+li {
+  list-style: none;
+}

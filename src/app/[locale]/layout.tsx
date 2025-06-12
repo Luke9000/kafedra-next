@@ -7,6 +7,7 @@ import "@/styles/global.css";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import styles from "./layout.module.css";
 
 const onest = localFont({
   src: "../../fonts/Onest-VariableFont_wght.ttf",
@@ -53,7 +54,9 @@ export default async function LocaleLayout({
       <body className={`${onest.variable} ${neutralFace.className}`}>
         <NextIntlClientProvider>
           <Header></Header>
-          {children}
+          <div className={styles.wrapper}>
+            <main className={styles.main}>{children}</main>
+          </div>
         </NextIntlClientProvider>
       </body>
     </html>
