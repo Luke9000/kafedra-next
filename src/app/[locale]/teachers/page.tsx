@@ -1,13 +1,13 @@
 'use client'
 
-import { useTranslations } from "next-intl";
+// import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { teachers } from "../../../content/teachers";
 import styles from "./page.module.css";
 import Image from "next/image";
 
 export default function Teachers() {
-  const t = useTranslations("Teachers");
+  // const t = useTranslations("Teachers");
 
   const [query, setQuery] = useState("");
 
@@ -35,7 +35,7 @@ export default function Teachers() {
       <div className={styles.wrapper}>
         <div className={styles.grid}>
           {filteredTeachers.length > 0 ? (
-            filteredTeachers.map((item, index) => (
+            filteredTeachers.map((item) => (
               <div className={styles.gridItem} key={item.text}>
                 <Image
                   className={styles.img}

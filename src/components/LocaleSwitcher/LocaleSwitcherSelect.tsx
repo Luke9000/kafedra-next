@@ -1,10 +1,9 @@
 'use client';
 
-import clsx from 'clsx';
-import {useParams} from 'next/navigation';
-import {Locale} from 'next-intl';
-import {ChangeEvent, ReactNode, useTransition} from 'react';
-import {usePathname, useRouter} from '@/i18n/navigation';
+import { usePathname, useRouter } from '@/i18n/navigation';
+import { Locale } from 'next-intl';
+import { useParams } from 'next/navigation';
+import { ChangeEvent, ReactNode, useTransition } from 'react';
 
 type Props = {
   children: ReactNode;
@@ -15,7 +14,6 @@ type Props = {
 export default function LocaleSwitcherSelect({
   children,
   defaultValue,
-  label
 }: Props) {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();

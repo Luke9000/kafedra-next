@@ -1,12 +1,11 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import localFont from "next/font/local";
 import Header from "@/components/Header/index";
-import "@/styles/global.css";
-import { NextIntlClientProvider, hasLocale } from "next-intl";
-import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import "@/styles/global.css";
+import type { Metadata } from "next";
+import { NextIntlClientProvider, hasLocale } from "next-intl";
+import localFont from "next/font/local";
+import { notFound } from "next/navigation";
+import "./globals.css";
 import styles from "./layout.module.css";
 
 const onest = localFont({
@@ -21,15 +20,15 @@ const neutralFace = localFont({
   src: "../../fonts/NeutralFace-Bold.ttf",
 });
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+// const geistSans = Geist({
+//   variable: "--font-geist-sans",
+//   subsets: ["latin"],
+// });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// const geistMono = Geist_Mono({
+//   variable: "--font-geist-mono",
+//   subsets: ["latin"],
+// });
 
 export const metadata: Metadata = {
   title: "Кафедра Цифровых и аддитивных технологий",

@@ -1,17 +1,12 @@
 "use client";
 
-import Link from "next/link";
-import {useTranslations} from 'next-intl';
-import Logo from "../icons/logo";
-import styles from "./styles.module.css";
-import Hamburger from "../Hamburger";
-import { usePathname } from "next/navigation";
-import clsx from "clsx";
-import NavigationMenu from "./NavigationMenu";
+// import { usePathname } from "next/navigation";
 import LocaleSwitcher from "../LocaleSwitcher";
+import NavigationMenu from "./NavigationMenu";
+import styles from "./styles.module.css";
 
 const index = () => {
-  const pathname = usePathname();
+  // const pathname = usePathname();
 
  
 

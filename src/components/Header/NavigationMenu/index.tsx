@@ -1,41 +1,41 @@
 "use client";
 
-import * as React from "react";
-import { NavigationMenu } from "radix-ui";
-import { CaretDownIcon } from "@radix-ui/react-icons";
-import styles from "./styles.module.css";
-import clsx from "clsx";
 import { Link } from "@/i18n/navigation";
+import { CaretDownIcon } from "@radix-ui/react-icons";
+// import clsx from "clsx";
 import { useTranslations } from "next-intl";
+import { NavigationMenu } from "radix-ui";
+import * as React from "react";
+import styles from "./styles.module.css";
 
 
 
-import {useParams} from 'next/navigation';
-import {Locale} from 'next-intl';
-import {ChangeEvent, ReactNode, useTransition} from 'react';
-import {usePathname, useRouter} from '@/i18n/navigation';
+// import { usePathname, useRouter } from '@/i18n/navigation';
+// import { Locale } from 'next-intl';
+// import { useParams } from 'next/navigation';
+// import { ChangeEvent, useTransition } from 'react';
 
 const NavMenu = () => {
   const t = useTranslations("NavigationMenu");
 
 
-  const router = useRouter();
-  const [isPending, startTransition] = useTransition();
-  const pathname = usePathname();
-  const params = useParams();
+  // const router = useRouter();
+  // const [isPending, startTransition] = useTransition();
+  // const pathname = usePathname();
+  // const params = useParams();
 
-function onSelectChange(event: ChangeEvent<HTMLSelectElement>) {
-    const nextLocale = event.target.value as Locale;
-    startTransition(() => {
-      router.replace(
-        // @ts-expect-error -- TypeScript will validate that only known `params`
-        // are used in combination with a given `pathname`. Since the two will
-        // always match for the current route, we can skip runtime checks.
-        {pathname, params},
-        {locale: nextLocale}
-      );
-    });
-  }
+// function onSelectChange(event: ChangeEvent<HTMLSelectElement>) {
+//     const nextLocale = event.target.value as Locale;
+//     startTransition(() => {
+//       router.replace(
+//         // @ts-expect-error -- TypeScript will validate that only known `params`
+//         // are used in combination with a given `pathname`. Since the two will
+//         // always match for the current route, we can skip runtime checks.
+//         {pathname, params},
+//         {locale: nextLocale}
+//       );
+//     });
+//   }
 
 
   return (
@@ -47,7 +47,7 @@ function onSelectChange(event: ChangeEvent<HTMLSelectElement>) {
           </NavigationMenu.Trigger>
           <NavigationMenu.Content className={styles.Content}>
             <ul className={`${styles.List} one`}>
-              <ListItem
+              {/* <ListItem
                 title="Introduction"
                 href="/primitives/docs/overview/introduction"
               >
@@ -64,7 +64,7 @@ function onSelectChange(event: ChangeEvent<HTMLSelectElement>) {
                 href="/primitives/docs/overview/introduction"
               >
                 Build high-quality, accessible design systems and web apps.
-              </ListItem>
+              </ListItem> */}
 
               <Link
                 className={styles.ListItemLink}
@@ -102,7 +102,7 @@ function onSelectChange(event: ChangeEvent<HTMLSelectElement>) {
           </NavigationMenu.Trigger>
           <NavigationMenu.Content className={styles.Content}>
             <ul className={`${styles.List} two`}>
-              <ListItem
+              {/* <ListItem
                 title="Introduction"
                 href="/primitives/docs/overview/introduction"
               >
@@ -135,7 +135,7 @@ function onSelectChange(event: ChangeEvent<HTMLSelectElement>) {
                 href="/primitives/docs/overview/releases"
               >
                 Radix Primitives releases and their changelogs.
-              </ListItem>
+              </ListItem> */}
             </ul>
           </NavigationMenu.Content>
         </NavigationMenu.Item>
@@ -151,7 +151,7 @@ function onSelectChange(event: ChangeEvent<HTMLSelectElement>) {
               </select> */}
 
             <ul className={`${styles.List} two`}>
-              <ListItem
+              {/* <ListItem
                 title="Introduction"
                 href="/primitives/docs/overview/introduction"
               >
@@ -184,7 +184,7 @@ function onSelectChange(event: ChangeEvent<HTMLSelectElement>) {
                 href="/primitives/docs/overview/releases"
               >
                 Radix Primitives releases and their changelogs.
-              </ListItem>
+              </ListItem> */}
             </ul>
           </NavigationMenu.Content>
         </NavigationMenu.Item>
@@ -201,21 +201,21 @@ function onSelectChange(event: ChangeEvent<HTMLSelectElement>) {
   );
 };
 
-const ListItem = React.forwardRef(
-  ({ className, children, title, ...props }, forwardedRef) => (
-    <li>
-      <NavigationMenu.Link asChild>
-        <a
-          className={clsx(styles.ListItemLink, className)}
-          {...props}
-          ref={forwardedRef}
-        >
-          <div className={styles.ListItemHeading}>{title}</div>
-          <p className={styles.ListItemText}>{children}</p>
-        </a>
-      </NavigationMenu.Link>
-    </li>
-  )
-);
+// const ListItem = React.forwardRef(
+//   ({ className, children, title, ...props }, forwardedRef) => (
+//     <li>
+//       <NavigationMenu.Link asChild>
+//         <a
+//           className={clsx(styles.ListItemLink, className)}
+//           {...props}
+//           ref={forwardedRef}
+//         >
+//           <div className={styles.ListItemHeading}>{title}</div>
+//           <p className={styles.ListItemText}>{children}</p>
+//         </a>
+//       </NavigationMenu.Link>
+//     </li>
+//   )
+// );
 
 export default NavMenu;
