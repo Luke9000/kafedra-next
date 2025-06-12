@@ -1,0 +1,30 @@
+{
+  "HomePage": {
+    "title": "Hello world!",
+    "about": "Go to the about page"
+  },
+  "LocaleSwitcher": {
+    "label": "Change language",
+    "locale": "{locale, select, ru {ru Русский} en {🇺🇸 English} other {Unknown}}"
+  },
+
+    "NavigationMenu": {
+    "teachers": {
+      "text": "TEACHERS",
+      "title": "teachers list",
+      "href": "/teachers"
+    },
+     "works": {
+      "text": "Работы студентов",
+      "title": "Выдержки из выпускных квалификационных работ",
+      "href": "/works"
+    }
+  },
+
+  "Teachers": {
+    "title": "Teachers"
+  }
+
+  
+
+}

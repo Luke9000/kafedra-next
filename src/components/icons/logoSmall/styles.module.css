@@ -1,0 +1,13 @@
+.wrapper {
+  
+  transition: all 0.3s ease-in-out;
+  width:120px;
+  @media (min-width:1200px) {
+    width:320px;
+  }
+
+}
+
+/* .wrapper:hover {
+  width: 130px;
+} */

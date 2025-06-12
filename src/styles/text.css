@@ -1,0 +1,41 @@
+:root {
+  --component-body-line-height: calc(
+    var(--body-line-height) * var(--line-height-multiplier, 1)
+  );
+  --component-heading-line-height: calc(
+    var(--heading-line-height) * var(--line-height-multiplier, 1)
+  );
+  --line-height-multiplier: 1;
+  --text-vspace-multiplier: 1;
+}
+.text {
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: var(--component-heading-line-height);
+    margin-bottom: calc(var(--space-xxxs) * var(--text-vspace-multiplier));
+  }
+
+  h2,
+  h3,
+  h4 {
+    margin-top: calc(var(--space-sm) * var(--text-vspace-multiplier));
+  }
+
+  p,
+  blockquote,
+  ul li,
+  ol li {
+    line-height: var(--component-body-line-height);
+  }
+
+  ul,
+  ol,
+  p,
+  blockquote,
+  .text-component__block,
+  .text-component__img {
+    margin-bottom: calc(var(--space-sm) * var(--text-vspace-multiplier));
+  }
+}
