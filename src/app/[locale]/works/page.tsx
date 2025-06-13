@@ -1,6 +1,45 @@
+import { createClient } from "@/utils/supabase/server";
+import Image from 'next/image'
+import type { Database } from "@/utils/supabase/supabase"
+import Ui from './Ui'
 
-export default function Map() {
+type Work = Database["public"]["Tables"]["Works"]["Row"]
 
-        <div>map</div>
-     
+export default async function Instruments() {
+
+  
+  const supabase = await createClient();
+  const { data: works } = await supabase.from<"Works", Work>("Works").select() ;
+
+
+  if (!works || works.length === 0) return <div>Ошибка на сервере</div>;
+  const bucket = supabase.storage.from("works-images");
+
+  const worksWithFullUrls: Work[] = works.map((work) => {
+    const fullImageUrls = work.images.map((filename: string) =>
+      bucket.getPublicUrl(filename).data.publicUrl
+    );
+
+    return {
+      ...work,
+      titleImage: fullImageUrls[0] ?? work.titleImage,
+      images: fullImageUrls,
+    };
+  });
+  const imageFilename = works[0].titleImage;
+  const { data: {publicUrl} } = supabase.storage
+    .from("works-images")
+    .getPublicUrl(imageFilename);
+
+    console.log(worksWithFullUrls)
+//<Image width={500} height={300} src={publicUrl} alt = {'test'}></Image>
+
+
+  return (
+    <>
+      <Ui works={worksWithFullUrls}></Ui>
+      
+
+    </>
+  );
 }

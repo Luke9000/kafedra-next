@@ -144,6 +144,6 @@ export const teachers = [
   {
     text: "Ярославцева Елена Константиновна",
     subtext: "Доцент кафедры цифровых и аддитивных технологий",
-    image: "/images/teachers/yaroslavceva.jpg",
+    image: "/images/teachers/yaroslavceva.png",
   },
 ];

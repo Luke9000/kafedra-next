@@ -1,6 +1,16 @@
+// import { put } from "@vercel/blob";
 
-export default function Map() {
+// const { url } = await put('articles/blob.txt', 'Hello World!', { access: 'public' });
 
-        <div>map</div>
-     
+
+import React from 'react'
+
+type Props = {}
+
+const page = (props: Props) => {
+  return (
+    <div>page</div>
+  )
 }
+
+export default page

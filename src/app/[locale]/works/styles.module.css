@@ -1,0 +1,250 @@
+.container {
+  /* padding: 4vh 2vw; */
+  /* padding-bottom: 0; */
+  width: 100%;
+  min-height: 20vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2vmin;
+}
+
+.heroText {
+  padding: 5vmin;
+  color: var(--text-color-opposite);
+  background-color: var(--text-color-bright);
+  height: 41vh;
+  line-height: 127%;
+  letter-spacing: 0.1rem;
+  font-family: var(--font-family-regular);
+  font-weight: var(--font-weight-extraLight);
+  /* font-size: 0.9rem; */
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 45vmax 1;
+}
+
+.block {
+  height: 41vh;
+  min-height: 200px;
+  flex: 45vmax 1;
+  border-radius: 1rem;
+  background-position: center;
+  background-size: cover;
+  padding: 2.5vmin 3vmin;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: var(--transition-default);
+  cursor: pointer;
+  border: var(--border-default);
+}
+
+.block:nth-of-type(3n){
+  flex: 90vmax 1;
+}
+
+.blockSmall {
+  flex: calc(45vmax / 2 - 3vmin) 1;
+}
+
+/* .block:nth-of-type(1n) {
+  background: var(--gradient-2), url(../../../shared/assets/images/works/1.jpeg);
+  background-position: center;
+  background-size: cover;
+}
+
+.block:nth-of-type(2n) {
+  background: var(--gradient-2), url(../../../shared/assets/images/works/2.jpeg);
+  background-position: center;
+  background-size: cover;
+}
+
+.block:nth-of-type(3n) {
+  background: var(--gradient-2), url(../../../shared/assets/images/works/3.jpeg);
+  background-position: center;
+  background-size: cover;
+}
+
+.block:nth-of-type(4n) {
+  background: var(--gradient-2), url(../../../shared/assets/images/works/4.jpeg);
+  background-position: center;
+  background-size: cover;
+} */
+
+@media (min-width: 1200px) {
+  .block::after {
+    z-index: -4;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    background: rgba(0, 0, 0, 0);
+    transition: all 0.3s ease;
+    opacity: 0;
+  }
+  .block:hover::after {
+    background: linear-gradient(#00000000 0%, #000000c7 100%);
+    opacity: 1;
+  }
+}
+
+.block:hover {
+  filter: saturate(1);
+}
+
+.smallLineHeight {
+  line-height: 90%;
+}
+
+.block small {
+  opacity: 0%;
+  transition: var(--transition-default);
+}
+
+.block p {
+  opacity: 0%;
+  transition: var(--transition-default);
+}
+
+.block:hover small {
+  opacity: 100%;
+}
+
+.modalImages {
+  display: flex;
+  flex-direction: row;
+  gap: 5vmin;
+  align-items: center;
+  flex-wrap: wrap;
+  flex: 40vw 1 1;
+}
+
+.modalAuthor {
+  display: flex;
+  justify-content: space-between;
+  margin: var(--spacing-m) 0;
+  gap: 1vmin;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modalTitle {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2vmin;
+  margin-top: 4vmin;
+  margin-bottom: 2vmin;
+  align-items: center;
+}
+
+.title {
+  font-size: 2.5rem;
+  @media (max-width:768px) {
+    font-size: 2.0rem;
+  }
+}
+
+.type {
+  font-size: 1.4rem;
+}
+
+.modal h1 {
+  margin: 0;
+}
+
+.modal img {
+  margin: 0;
+  border: var(--border-default);
+}
+
+.modal {
+  @media (max-width: 768px) {
+    padding-bottom: 20vmin;
+  }
+}
+
+.author {
+  @media (max-width: 1200px) {
+    display: none;
+  }
+}
+
+.cont {
+  /* padding: 0 2vw; */
+  padding: 0 var(--padding-hor);
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-m);
+  padding-bottom: var(--spacing-m);
+}
+
+.title {
+  margin-bottom: 2vmax;
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+  /* padding-left: calc(5vw); */
+
+  gap: var(--spacing-l);
+  height: auto;
+  flex-wrap: wrap;
+  /* margin-top: 1vh;
+  margin-bottom: 10vh; */
+
+  @media (max-width: 1068px) {
+    /* margin-bottom: 6vh; */
+    gap: var(--spacing-s);
+  }
+}
+
+.search {
+  outline: 0px;
+  border: none;
+  height: 1.5rem;
+  min-width: 15%;
+  font-size: 0.8rem;
+  /* padding: 0.4rem; */
+  color: var(--text-color-regular);
+  border-bottom: var(--border-default);
+  background-color: transparent;
+  border-radius: 0;
+  @media (max-width: 768px) {
+    min-width: 21%;
+    height: 1.2rem;
+  }
+}
+
+.local {
+  margin: 0;
+  line-height: 0.85;
+}
+
+.img {
+  width: 100%;
+  height:auto;
+  object-fit: cover;
+  border-radius: 1rem;
+
+}
+
+.imgWrapper {
+  display: flex;
+  flex: 1 1 40vw;
+  height: fit-content;
+  margin: 0;  
+  @media (max-width:768px) {
+    flex: 1 1 80vw;
+  }
+}
