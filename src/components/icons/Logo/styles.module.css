@@ -1,0 +1,22 @@
+.wrapper {
+  
+  transition: all 0.3s ease-in-out;
+  width:11rem;
+  height: 100%;
+  @media (min-width: 768px) {
+    width:7rem;
+  }
+  /*LAPTOP */
+  @media (min-width: 1024px) {
+    width:7rem;
+  }
+  /*PC */
+  @media (min-width: 1440px) {
+    width:6.5rem;
+  }
+
+}
+
+/* .wrapper:hover {
+  width: 130px;
+} */
