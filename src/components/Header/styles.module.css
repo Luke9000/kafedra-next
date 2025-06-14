@@ -20,7 +20,7 @@
   height: 5vh;
   /* padding: 0.1rem 1.3vw; */
   padding: 0.1rem 1.2rem;
-  
+  overflow-x: scroll;
   /* @media (min-width: 768px) {
     gap: 1vw;
   }
