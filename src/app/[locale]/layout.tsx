@@ -7,6 +7,7 @@ import localFont from "next/font/local";
 import { notFound } from "next/navigation";
 import "./globals.css";
 import styles from "./layout.module.css";
+import Footer from "@/components/Footer";
 
 const onest = localFont({
   src: "../../fonts/Onest-VariableFont_wght.ttf",
@@ -56,6 +57,7 @@ export default async function LocaleLayout({
           <div className={styles.wrapper}>
             <main className={styles.main}>{children}</main>
           </div>
+          <Footer></Footer>
         </NextIntlClientProvider>
       </body>
     </html>

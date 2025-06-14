@@ -1,14 +1,16 @@
+'use client'
+
 import { useEffect } from "react";
 import "./styles.css";
 // import CrossThin from '../icons/svg-raw/CrossThin.svg'
-import { Cross1Icon } from "@radix-ui/react-icons";
+import { SquareX } from "lucide-react";
 
 interface Props {
   children?: React.ReactNode;
   onClose: () => void;
 }
 
-const index = ({ children, onClose }: Props) => {
+const Index = ({ children, onClose }: Props) => {
   const InsideClick = (event: React.MouseEvent) => {
     event.stopPropagation();
   };
@@ -39,9 +41,9 @@ const index = ({ children, onClose }: Props) => {
       <div className="modal" onClick={InsideClick}>
         {children}
       </div>
-      <Cross1Icon scale={4} className="closeIcon"></Cross1Icon>
+      <SquareX color="red" scale={4} className="closeIcon"></SquareX>
     </div>
   );
 };
 
-export default index;
+export default Index;

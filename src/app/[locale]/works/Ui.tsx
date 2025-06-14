@@ -13,7 +13,7 @@ type Props = {
   works: Work[];
 };
 
-const index = ({ works }: Props) => {
+const Index = ({ works }: Props) => {
   console.log("titleImage:", typeof works[0].titleImage, works[0].titleImage);
   console.log("images:", works[0].images);
 
@@ -110,4 +110,4 @@ const index = ({ works }: Props) => {
   );
 };
 
-export default index;
+export default Index;

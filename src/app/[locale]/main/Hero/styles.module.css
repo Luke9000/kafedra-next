@@ -1,0 +1,132 @@
+.container {
+  /* margin-top: 3rem; */
+  /* padding: 0 2vw; */
+  padding: 0 var(--padding-hor);
+  /* padding-bottom: 0; */
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2vmin;
+}
+
+.heroText {
+  padding: 5vmin;
+  color: var(--text-color-opposite);
+  background-color: var(--text-color-bright);
+  height: 41vh;
+  min-height: 200px;
+  line-height: 127%;
+  letter-spacing: 0.1rem;
+  font-family: var(--font-family-regular);
+  font-weight: var(--font-weight-extraLight);
+  /* font-size: 0.9rem; */
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 45vmax 1;
+  padding: 1rem 1rem;
+  @media (max-width:768px) {
+    font-size: 0.6rem;
+  }
+  
+}
+
+.block {
+  cursor: pointer;
+  height: 41vh;
+  min-height: 200px;
+  flex: 45vmax 1;
+  border-radius: 1rem;
+  background-position: center;
+  background-size: cover;
+  padding: 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @media (min-width:1024px) {
+    filter: saturate(0.1);
+  }
+  
+  transition: var(--transition-default);
+
+}
+
+.blockText {
+  cursor: pointer;
+  height: 41vh;
+  min-height: 200px;
+  flex: 45vmax 1;
+  border-radius: 1rem;
+  background-position: center;
+  background-size: cover;
+  padding: 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: var(--spacing-l);
+  filter: saturate(0.1);
+  transition: var(--transition-default);
+  cursor: default;
+  background-image: none;
+  filter: none;
+  background-color: var(--text-color-bright);
+
+  small {
+    
+    @media (max-width:768px) {
+      font-size: 1.0rem;
+    }
+    line-height: 150%;
+  }
+
+}
+
+.blockSmall {
+  flex: calc(45vmax / 2 - 3vmin) 1;
+}
+
+
+.block:nth-of-type(2n) {
+  background: linear-gradient(rgb(0, 0, 0.7) 0%, #00000000 50%, rgb(0, 0, 0) 100%),
+    url(/images/events/event1.webp);
+  background-position: center;
+  background-size: cover;
+}
+
+.block:nth-of-type(3n) {
+  background: linear-gradient(rgb(0, 0, 0.7) 0%, #00000000 50%, rgb(0, 0, 0) 100%),
+    url(/images/events/event4.webp);
+    background-position:top;
+  background-size: cover;
+}
+
+.block:nth-of-type(4n) {
+  background: linear-gradient(rgba(0, 0, 0, 0.7) 0%, #00000000 50%, rgb(0, 0, 0) 100%),
+    url(/images/events/event3.webp);
+    background-position:center;
+  background-size: cover;
+}
+
+.block:hover {
+  filter: saturate(1);
+}
+
+.smallLineHeight {
+  line-height: 90%;
+}
+@media (min-width:1024px) {
+  .block small {
+  opacity: 0%;
+  transition: var(--transition-default);
+}
+}
+
+
+.block:hover small {
+  opacity: 100%;
+}

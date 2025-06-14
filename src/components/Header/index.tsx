@@ -1,33 +1,17 @@
-"use client";
-
-// import { usePathname } from "next/navigation";
-import LocaleSwitcher from "../LocaleSwitcher";
-import NavigationMenu from "./NavigationMenu";
+import NavMenu from "./NavMenu";
 import styles from "./styles.module.css";
-
 const index = () => {
-  // const pathname = usePathname();
 
- 
+  
 
   return (
     <header className={styles.header}>
-      {/* <Link className={pathname === '/'? clsx(styles.activeLink, styles.logo): styles.logo} href="/">
-        <Logo></Logo>
-      </Link> */}
-
-      
-
-      <NavigationMenu></NavigationMenu>
-      <LocaleSwitcher></LocaleSwitcher>
-      {/* 
-      <NavLink
+      <NavMenu></NavMenu>
+      {/* <NavLink
         draggable={false}
         to="/kafedra"
         end
-        className={({ isActive }) =>
-          clsx(isActive && styles.activeLink, styles.logo)
-        }
+        className={({ isActive }) => clsx(isActive && styles.activeLink,styles.logo)}
       >
         {({ isActive }) => {
           const rootStyles = getComputedStyle(document.documentElement);
@@ -38,17 +22,14 @@ const index = () => {
             .getPropertyValue("--logo-color-dark")
             .trim();
 
-          return (
-            <Logo
-              className={clsx(styles.logo, isActive && styles.activeLink)}
-              fill={isActive ? activeColor : defaultColor}
-            />
-          );
+          return <Logo className={clsx(styles.logo, isActive && styles.activeLink)} fill={isActive ? activeColor : defaultColor} />;
         }}
-      </NavLink> */}
-      {/* 
+      </NavLink>
+
+
       <nav className={styles.nav}>
         <ul className={styles.ul}>
+          <Link  href={'/prepodavateli'}>ПРЕПОДАВАТЕЛИ</Link>
           <li>
             <NavLink
               draggable={false}
