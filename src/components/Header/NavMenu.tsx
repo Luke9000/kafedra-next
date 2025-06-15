@@ -5,7 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import links from "./links";
 import styles from "./styles.module.css";
-// ...
 
 export default function NavLinks() {
   const path = usePathname();

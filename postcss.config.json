@@ -1,8 +1,8 @@
 {
   "plugins": [
     "postcss-flexbugs-fixes",
+    "postcss-nested",
     [
-      "postcss-nested",
       "postcss-preset-env",
       {
         "autoprefixer": {
@@ -11,7 +11,7 @@
         "stage": 3,
         "features": {
           "custom-properties": false,
-          "custom-media" : true
+          "custom-media-queries": true
         }
       }
     ]

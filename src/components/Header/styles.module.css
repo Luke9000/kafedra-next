@@ -21,10 +21,10 @@
   /* padding: 0.1rem 1.3vw; */
   padding: 0.1rem 0.8rem;
 
-  @media (max-width: 768px) {
+  /* @media (max-width: 768px) {
     overflow-x: scroll;
     overflow-y: hidden;
-  }
+  } */
   /* @media (min-width: 768px) {
     gap: 1vw;
   }
@@ -85,6 +85,22 @@ a.logo {
   border-color: transparent !important;
 } */
 
+.navMenuMobile {
+  width: 100%;
+  height: auto;
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+}
+
 .navMenu {
   display: flex;
   justify-content: center;
@@ -93,15 +109,19 @@ a.logo {
   stroke: #727272;
   color: #727272;
 
-&__wrapper {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  @media --s {display: none;
-  background-color: red;}
-}
+  @media (max-width: 768px) {
+    display: none;
+  }
 
+  &__wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
 }
 
 .navMenu__text {
@@ -128,4 +148,3 @@ a.logo {
   stroke: var(--text-color-bright);
   fill: var(--text-color-bright);
 }
-
