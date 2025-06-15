@@ -5,12 +5,13 @@ import styles from "./styles.module.css";
 // import MapPinnedIcon from "../../shared/assets/icons/svg-raw/MapPinnedIcon.svg?react";
 // import Mail from "../../shared/assets/icons/svg-raw/Mail.svg?react";
 
-import { Phone,MapPinnedIcon, Mail, ExternalLink } from 'lucide-react';
+import { Phone, MapPinnedIcon, Mail, ExternalLink} from "lucide-react";
+import Link from 'next/link'
 
 const index = () => {
   return (
     <footer className={styles.footer}>
-      <h1  className={clsx("alt", styles.pad)}>КОНТАКТЫ</h1>
+      <h1 className={clsx("alt", styles.pad)}>КОНТАКТЫ</h1>
       <div className={styles.footerUpper}>
         <div className={styles.datablock}>
           <h4>КАФЕДРА</h4>
@@ -22,7 +23,7 @@ const index = () => {
             >
               <div className={styles.inline}>
                 <p className="alt2">Вознесенский пр., д. 46, каб. 452-463</p>
-                <MapPinnedIcon ></MapPinnedIcon>
+                <MapPinnedIcon></MapPinnedIcon>
               </div>
               <small className="alt">Адрес</small>
             </a>
@@ -127,6 +128,13 @@ const index = () => {
             <small className="alt">Сайт личного кабинета</small>
           </div>
         </a>
+      </div>
+
+      <hr></hr>
+      <div className={styles.urlWrapper}>
+        <Link href="/login">
+          <p className="alt">Панель администратора</p>
+        </Link>
       </div>
     </footer>
   );

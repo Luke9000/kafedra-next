@@ -14,8 +14,8 @@ type Props = {
 };
 
 const Index = ({ works }: Props) => {
-  console.log("titleImage:", typeof works[0].titleImage, works[0].titleImage);
-  console.log("images:", works[0].images);
+  // console.log("titleImage:", typeof works[0].titleImage, works[0].titleImage);
+  // console.log("images:", works[0].images);
 
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState<React.ReactNode | null>(
@@ -53,7 +53,7 @@ const Index = ({ works }: Props) => {
             value={query}
             onChange={(e) => {
               setQuery(e.target.value);
-              console.log(e.target.value);
+              // console.log(e.target.value);
             }}
             placeholder="Поиск..."
           ></input>

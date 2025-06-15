@@ -1,3 +1,4 @@
+@import url(./breakpoints.css);
 @import url(./font-size.css);
 @import url(./space.css);
 @import url(./text.css);
@@ -59,6 +60,9 @@
 }
 
 svg {
+  @media (--xs) {
+    
+  }
   stroke-width: 1;
   stroke: var(--background-color-1);
 }

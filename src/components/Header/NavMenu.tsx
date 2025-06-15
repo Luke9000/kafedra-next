@@ -11,7 +11,7 @@ export default function NavLinks() {
   const path = usePathname();
 
   return (
-    <>
+    <div className={styles.navMenu__wrapper}>
       {links.map((link) => {
         const LinkIcon = link.icon;
         return (
@@ -30,6 +30,6 @@ export default function NavLinks() {
           </Link>
         );
       })}
-    </>
+    </div>
   );
 }

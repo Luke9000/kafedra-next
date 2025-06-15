@@ -2,9 +2,9 @@
   background-color: var(--background-color-1);
   /* background: linear-gradient(to bottom, white, rgba(255, 255, 255, 0.0)); */
   /* padding:  1.0rem 1.5rem ; */
-  position: sticky;
+  position: fixed;
   left: 0px;
-  top: .5vh;
+  /* top: 0.5vh; */
   z-index: 9;
   font-family: var(--font-family-regular);
   min-height: 40px;
@@ -19,8 +19,12 @@
   display: flex;
   height: 5vh;
   /* padding: 0.1rem 1.3vw; */
-  padding: 0.1rem 1.2rem;
-  overflow-x: scroll;
+  padding: 0.1rem 0.8rem;
+
+  @media (max-width: 768px) {
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
   /* @media (min-width: 768px) {
     gap: 1vw;
   }
@@ -29,8 +33,6 @@
   } */
   /* border: var(--border-default);
   border-color: var(--text-color-regular); */
-  
-
 }
 
 .nav {
@@ -83,7 +85,6 @@ a.logo {
   border-color: transparent !important;
 } */
 
-
 .navMenu {
   display: flex;
   justify-content: center;
@@ -91,14 +92,23 @@ a.logo {
   gap: var(--spacing-xs);
   stroke: #727272;
   color: #727272;
- 
+
+&__wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  @media --s {display: none;
+  background-color: red;}
+}
+
 }
 
 .navMenu__text {
   font-weight: 300;
   color: inherit;
   font-size: 0.5rem;
-  @media (max-width:768px) {
+  @media (max-width: 768px) {
     font-size: 0.7rem;
   }
 }
@@ -107,18 +117,15 @@ a.logo {
   stroke: inherit;
 }
 
-
-
 .navMenu:hover {
   color: var(--accent-color-main);
   stroke: var(--accent-color-main);
-  fill:var(--accent-color-main);
+  fill: var(--accent-color-main);
 }
 
 .activeLink {
   color: var(--text-color-bright);
   stroke: var(--text-color-bright);
-  fill:var(--text-color-bright);
+  fill: var(--text-color-bright);
 }
-
 

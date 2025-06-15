@@ -27,7 +27,7 @@ export default function Teachers() {
           value={query}
           onChange={(e) => {
             setQuery(e.target.value);
-            console.log(e.target.value);
+            // console.log(e.target.value);
           }}
           placeholder="Поиск"
         ></input>

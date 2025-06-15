@@ -1,0 +1,44 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%;
+  gap: 1rem;
+  margin-bottom: var(--spacing-m);
+}
+
+.svg {
+  stroke: none ;
+}
+
+.test {
+  stroke: darkblue;
+  fill: red;
+  
+}
+.test:hover {
+  cursor: pointer;
+  color: red;
+  fill: red;
+  stroke: red;
+  background-color: red;
+}
+
+.svgWrapper {
+  overflow: hidden;
+  stroke: none;
+}
+
+.bright {
+  color: var(--text-color-bright);
+}
+
+
+.text {
+  font-family: var(--font-family-regular);
+  font-weight: 300;
+  font-size: 0.7rem;
+}

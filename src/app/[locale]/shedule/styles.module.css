@@ -1,0 +1,150 @@
+.pageWrapper {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: var(--spacing-m);
+  padding: 0 var(--padding-hor);
+  margin-bottom: 2vmax;
+}
+
+.local {
+  margin: 0;
+  line-height: 0.85;
+  margin-bottom: 0.4rem;
+}
+
+.btnsGroup {
+  display: flex;
+  gap: 0.4rem;
+  @media (max-width: 768px) {
+    /* gap: .8rem; */
+  }
+}
+
+.sheduleWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  /* padding: var(--padding-hor); */
+  gap: 1rem;
+  overflow-x: hidden;
+}
+
+.weekDay {
+  display: flex;
+  border: var(--border-default);
+  border-radius: 1rem;
+  padding: 1rem;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1 1 600px;
+}
+
+.weekDayRow {
+  /* display: flex;
+  flex-direction: row;
+  gap: 0.5rem; */
+  display: grid;
+  grid-template-columns: minmax(50px, 1fr) minmax(50px, 2.5fr) minmax(50px, 1fr);
+  @media (min-width: 768px) {
+    grid-template-columns: minmax(125px, 1fr) minmax(125px, 2.5fr) minmax(
+        125px,
+        1fr
+      ) minmax(125px, 1fr);
+  }
+
+  gap: 14px;
+  word-wrap: break-word;
+}
+
+.weekDayHeader {
+  font-weight: var(--font-weight-bold);
+  font-size: 34px;
+  color: red;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(50px, 1fr));
+  gap: 14px;
+}
+
+.cell {
+  width: 200px;
+  text-align: left;
+  /* flex: 1 1 400px; */
+  font-family: Onest;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-color-regular);
+}
+
+.title {
+  /* display: flex; */
+  margin-bottom: 0.3vmax;
+  flex-direction: row;
+  align-items: center;
+  /* padding-left: calc(5vw); */
+  align-items: flex-end;
+  gap: var(--spacing-l);
+  height: auto;
+  /* margin-top: 1vh;
+    margin-bottom: 10vh; */
+
+  @media (max-width: 1068px) {
+    gap: var(--spacing-m);
+  }
+}
+
+.h5 {
+  font-family: Onest;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-color-regular);
+}
+
+.time {
+  font-weight: 700;
+  color: rgb(94, 94, 94);
+}
+
+.btn {
+  font-family: Onest;
+  background-color: transparent;
+  height: 1.45rem;
+  border: var(--border-default);
+  padding: 0.3rem;
+  vertical-align: middle;
+  font-weight: 700;
+  border-radius: 0.3rem;
+  font-size: 0.7rem;
+  transition: var(--transition-default);
+  cursor: pointer;
+  @media (max-width: 768px) {
+    height: 2.3rem;
+    padding: 0.4rem 0.4rem;
+    font-size: 1.1rem;
+  }
+  border-color: var(--text-color-regular);
+  color: var(--text-color-regular);
+}
+
+@media (min-width: 900px) {
+  .btn:hover {
+    background-color: var(--text-color-bright);
+    border-color: var(--text-color-bright);
+    color: var(--background-color-1);
+  }
+}
+
+.modal {
+  margin-top: 7vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.format {
+  @media (max-width: 768px) {
+    display: none;
+  }
+}

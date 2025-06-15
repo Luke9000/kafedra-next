@@ -1,6 +1,17 @@
+import styles from "./styles.module.css";
+import FloorPlan from './FloorPlan/Index'
 
-export default function Map() {
+const index = () => {
+  return (
+    <div>
+      <div className={styles.wrapper}>
+        <div className={styles.title}>
+          <h1 className={styles.local}>КАРТА КАФЕДРЫ</h1>
+        </div>
+        <FloorPlan></FloorPlan>
+      </div>
+    </div>
+  );
+};
 
-        <div>map</div>
-     
-}
+export default index;
