@@ -5,6 +5,13 @@ import Image from "next/image";
 // import events from "../../../../../../Kafedra/src/entities/events";
 import clsx from "clsx";
 
+const events = [
+  "/images/events/event1.webp",
+  "/images/events/event2.webp",
+  "/images/events/event3.webp",
+  "/images/events/event4.webp",
+];
+
 export const Events = (
   <div className={styles.imageCont}>
     <h1 className={styles.bigText}>Мероприятия</h1>
@@ -13,42 +20,16 @@ export const Events = (
       хакатоны, интенсивы, стендапы и многое другое
     </small>
 
-    {/* {events.map((item, index) => (
-      <img
+    {events.map((item, index) => (
+      <Image
         key={index}
         className={styles.img}
-        src={item.image}
-        alt={item.text}
-      ></img>
-    ))} */}
-    <Image
-      className={styles.img}
-      src={"/images/events/event1.webp"}
-      alt="1"
-      width={800}
-      height={500}
-    ></Image>
-    <Image
-      className={styles.img}
-      src={"/images/events/event2.webp"}
-      alt="1"
-      width={600}
-      height={400}
-    ></Image>
-    <Image
-      className={styles.img}
-      src={"/images/events/event3.webp"}
-      alt="1"
-      width={600}
-      height={400}
-    ></Image>
-    <Image
-      className={styles.img}
-      src={"/images/events/event4.webp"}
-      alt="1"
-      width={600}
-      height={400}
-    ></Image>
+        src={item}
+        alt={"1"}
+        width={400}
+        height={250}
+      ></Image>
+    ))}
   </div>
 );
 
@@ -100,8 +81,9 @@ export const CK = (
   <>
     <h1 className={styles.bigText}>Проект цифровая кафедра</h1>
     <small className={styles.title}>
-      В рамках проекта &quot;Цифровая кафедра&quot; более 2000 студентов СПбГУПТД из
-      разных направлений ежегодно осваивают современные цифровые компетенции.
+      В рамках проекта &quot;Цифровая кафедра&quot; более 2000 студентов
+      СПбГУПТД из разных направлений ежегодно осваивают современные цифровые
+      компетенции.
     </small>
     <p>
       Проект реализуется с целью подготовки специалистов, востребованных в
