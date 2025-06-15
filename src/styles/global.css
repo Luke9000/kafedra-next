@@ -309,13 +309,15 @@ a.left {
 li {
   text-align: center;
 }
-
-a:hover {
+@media (min-width:1000px) {
+  a:hover {
   /* font-size: 0.63rem; */
   border-color: var(--accent-color-main);
   color: var(--background-color-3);
   /* background-color: var(--background-color-2); */
 }
+}
+
 
 .mobileHidden {
   @media (max-width: 1200px) {
@@ -347,11 +349,13 @@ a:hover {
     font-size: 0.7rem;
   }
 }
-
-.textCall:hover {
+@media (min-width:1000px) {
+  .textCall:hover {
   font-size: 0.8rem;
   border: 1px solid var(--text-color-bright);
 }
+}
+
 
 .ending {
   width: 100%;

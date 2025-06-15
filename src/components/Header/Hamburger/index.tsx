@@ -17,7 +17,7 @@ const DropdownMenuDemo = () => {
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>
         <button className={styles.IconButton} aria-label="Customise options">
-          <HamburgerMenuIcon />
+          <HamburgerMenuIcon  />
         </button>
       </DropdownMenu.Trigger>
 

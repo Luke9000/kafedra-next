@@ -21,10 +21,9 @@
   /* padding: 0.1rem 1.3vw; */
   padding: 0.1rem 0.8rem;
 
-  /* @media (max-width: 768px) {
-    overflow-x: scroll;
-    overflow-y: hidden;
-  } */
+  @media (max-width: 768px) {
+    padding: 0.1rem 0.9rem;
+  }
   /* @media (min-width: 768px) {
     gap: 1vw;
   }
