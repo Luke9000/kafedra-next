@@ -41,7 +41,7 @@ const Index = ({ children, onClose }: Props) => {
       <div className="modal" onClick={InsideClick}>
         {children}
       </div>
-      <SquareX color="red" scale={4} className="closeIcon"></SquareX>
+      <SquareX scale={4} className="closeIcon"></SquareX>
     </div>
   );
 };
