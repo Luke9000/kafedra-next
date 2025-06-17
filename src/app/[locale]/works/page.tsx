@@ -5,7 +5,7 @@ import Ui from "./Ui";
 
 export default async function Instruments() {
   const supabase = await createClient();
-  const { data: works } = await supabase.from<"Works", Work>("Works").select();
+  const { data: works } = await supabase.from<"works", Work>("works").select();
 
   if (!works || works.length === 0) return <div>Перезагрузите страницу</div>;
 
