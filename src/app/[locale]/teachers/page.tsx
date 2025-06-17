@@ -6,6 +6,7 @@ import { teachers } from "../../../content/teachers";
 import styles from "./page.module.css";
 import Image from "next/image";
 
+
 export default function Teachers() {
   // const t = useTranslations("Teachers");
 

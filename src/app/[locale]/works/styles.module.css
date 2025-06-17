@@ -210,6 +210,7 @@
 }
 
 .search {
+  font-family: var(--default-font-family);
   outline: 0px;
   border: none;
   height: 1.6rem;

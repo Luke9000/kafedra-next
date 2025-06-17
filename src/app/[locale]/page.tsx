@@ -3,6 +3,7 @@ import Hero from "./main/Hero";
 import StudyRoute from "./main/StudyRoute";
 import Table from "./main/Table";
 import styles from "./page.module.css";
+export const dynamic = 'force-static'
 
 export default function Home() {
   return (

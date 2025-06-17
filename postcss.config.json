@@ -2,6 +2,7 @@
   "plugins": [
     "postcss-flexbugs-fixes",
     "postcss-nested",
+    
     [
       "postcss-preset-env",
       {
@@ -14,6 +15,10 @@
           "custom-media-queries": true
         }
       }
+    ],
+    [
+      "@tailwindcss/postcss",
+      {}
     ]
   ]
 }

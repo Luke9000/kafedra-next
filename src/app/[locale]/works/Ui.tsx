@@ -62,7 +62,7 @@ const Index = ({ works }: Props) => {
           {filteredWorks.length > 0 ? (
             filteredWorks.map((item, index) => (
               <div
-                style={{ backgroundImage: `url(${item.titleImage})` }}
+                style={{ backgroundImage: `url(${item.images[0]})` }}
                 key={index}
                 className={styles.block}
                 onClick={() =>
