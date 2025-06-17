@@ -1,6 +1,5 @@
 import styles from "./styles.module.css";
 import {DownloadIcon} from 'lucide-react'
-export const dynamic = 'force-static'
 
 const index = () => {
   return (

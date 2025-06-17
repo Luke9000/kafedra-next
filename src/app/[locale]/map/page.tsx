@@ -1,6 +1,5 @@
 import styles from "./styles.module.css";
 import FloorPlan from './FloorPlan/Index'
-export const dynamic = 'force-static'
 
 const index = () => {
   return (
