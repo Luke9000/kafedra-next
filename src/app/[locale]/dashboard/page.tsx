@@ -9,6 +9,5 @@ export default async function PrivatePage() {
   if (error || !data?.user) {
     redirect('/login')
   }
-
   return <UI></UI>
 }

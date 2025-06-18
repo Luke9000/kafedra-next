@@ -13,8 +13,6 @@ import { LogIn, LogOut,ClipboardList, IdCard } from "lucide-react";
 import { useEffect, useState } from "react";
 import { getUserRole } from "./userRole";
 import { redirect } from "next/navigation";
-import { createClient } from "@/utils/supabase/client";
-import { jwtDecode } from "jwt-decode";
 
 const DropdownMenuDemo = () => {
   const [userRole, setUserRole] = useState<string | null>("");
@@ -22,29 +20,14 @@ const DropdownMenuDemo = () => {
     await fetch("auth/signout", { method: "POST" });
     redirect("/login");
   }
-const supabase = createClient();
+
   const path = usePathname();
 
- useEffect(() => {
-    // при монтировании – получаем роль один раз
-    getUserRole().then(setUserRole);
-
-    // подписываемся на все события auth (login, logout, token refresh)
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      if (session?.access_token) {
-        // при любом логине/рефреше токена – читаем новую роль
-        const jwt = jwtDecode<{ user_role?: string }>(session.access_token);
-        setUserRole(jwt.user_role ?? "");
-      } else {
-        // при логауте – сбрасываем роль
-        setUserRole("");
-      }
+  useEffect(() => {
+    getUserRole().then((role) => {
+      setUserRole(() => role);
+      console.log("role:", role);
     });
-
-    // отписываемся при анмаунте
-    return () => {
-      subscription.unsubscribe();
-    };
   }, []);
 
   return (
@@ -104,10 +87,10 @@ const supabase = createClient();
               {/* Разделитель + выход */}
               <DropdownMenuSeparator />
               <DropdownMenu.Item className={styles.Item} asChild>
-                <div className={styles.navMenu} onClick={handleSignOut}>
+                <span className={styles.navMenu} onClick={handleSignOut}>
                   <LogOut className={styles.navMenu__icon} />
                   <span className={styles.navMenu__text}>Выйти</span>
-                </div>
+                </span>
               </DropdownMenu.Item>
             </>
           )}
