@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import links from "./links";
 import styles from "./styles.module.css";
+import Account from "./Account";
 
 export default function NavLinks() {
   const path = usePathname();
@@ -29,6 +30,7 @@ export default function NavLinks() {
           </Link>
         );
       })}
+      <Account></Account>
     </div>
     
   );

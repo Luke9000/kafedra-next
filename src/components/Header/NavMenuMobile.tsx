@@ -3,9 +3,10 @@
 import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import styles from "./styles.module.css";
 import Logo from "../icons/Logo";
 import Hamburger from "./Hamburger";
+import styles from "./styles.module.css";
+import Account from "./Account";
 
 
 export default function NavLinks() {
@@ -21,7 +22,10 @@ export default function NavLinks() {
       >
         <Logo className={styles.navMenu__icon}></Logo>
       </Link>
-        <Hamburger></Hamburger>
+        <div className="flex flex-row gap-4">
+          <Hamburger></Hamburger>
+          <Account></Account>
+        </div>
     </div>
   );
 }
