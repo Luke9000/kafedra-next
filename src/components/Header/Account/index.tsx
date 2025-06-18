@@ -1,12 +1,11 @@
 "use client"; //из-за usePathname только
 
-import { User } from "lucide-react";
-import { DropdownMenu } from "radix-ui";
-import styles from "./styles.module.css";
-
 import clsx from "clsx";
+import { User } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { DropdownMenu } from "radix-ui";
+import styles from "./styles.module.css";
 
 import { DropdownMenuSeparator } from "@radix-ui/react-dropdown-menu";
 
@@ -15,6 +14,10 @@ import { useEffect } from "react";
 import { getUserRole } from "./userRole";
 
 const DropdownMenuDemo = () => {
+  function handleSignOut() {
+    fetch("auth/signout", { method: "POST" });
+  }
+
   const path = usePathname();
 
   useEffect(() => {
@@ -45,11 +48,11 @@ const DropdownMenuDemo = () => {
               </Link>
             </DropdownMenu.Item>
             <DropdownMenuSeparator></DropdownMenuSeparator>
-            <DropdownMenu.Item className={styles.Item}>
-              <form action="/signout" method="post" className={styles.navMenu}>
+            <DropdownMenu.Item className={styles.Item} asChild>
+              <div className={styles.navMenu} onClick={handleSignOut}>
                 <LogOut className={styles.navMenu__icon} />
                 <span className={styles.navMenu__text}>Выйти</span>
-              </form>
+              </div>
             </DropdownMenu.Item>
           </DropdownMenu.Content>
         </DropdownMenu.Portal>
