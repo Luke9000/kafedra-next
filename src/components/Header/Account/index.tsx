@@ -12,12 +12,12 @@ import { DropdownMenuSeparator } from "@radix-ui/react-dropdown-menu";
 import { LogIn, LogOut } from "lucide-react";
 import { useEffect } from "react";
 import { getUserRole } from "./userRole";
-import router from "next/router";
+import { redirect } from 'next/navigation'
 
 const DropdownMenuDemo = () => {
   async function handleSignOut() {
     await fetch("auth/signout", { method: "POST" });
-    router.push("/login");
+    redirect("/login");
   }
 
   const path = usePathname();
