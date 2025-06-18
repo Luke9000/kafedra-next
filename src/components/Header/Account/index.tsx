@@ -94,7 +94,7 @@ const DropdownMenuDemo = () => {
                       })}
                     >
                       <ClipboardList className={styles.navMenu__icon} />
-                      <span className={styles.navMenu__text}>Админка</span>
+                      <span className={styles.navMenu__text}>Управление</span>
                     </Link>
                   </DropdownMenu.Item>
                 )}
