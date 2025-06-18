@@ -10,9 +10,17 @@ import { usePathname } from "next/navigation";
 
 import { DropdownMenuSeparator } from "@radix-ui/react-dropdown-menu";
 
-import { LogIn } from "lucide-react";
+import { LogIn,LogOut } from "lucide-react";
 import { getUserRole } from "./userRole";
 import { useEffect } from "react";
+import { POST } from "@/app/[locale]/auth/signout/route";
+
+
+  const handleSignOut = async () => {
+    await fetch("/signout", { method: "POST" })
+
+
+  }
 
 const DropdownMenuDemo = () => {
   const path = usePathname();
@@ -47,15 +55,15 @@ useEffect(() => {
               </Link>
             </DropdownMenu.Item>
             <DropdownMenuSeparator></DropdownMenuSeparator>
-            <DropdownMenu.Item className={styles.Item}>
+            <DropdownMenu.Item className={styles.Item} onClick={handleSignOut}>
               <Link
-                href={"/login"}
+                href={"/"}
                 className={clsx(styles.navMenu, {
-                  [styles.activeLink]: path === "/login",
+                  [styles.activeLink]: false,
                 })}
               >
-                <LogIn className={styles.navMenu__icon} />
-                <span className={styles.navMenu__text}>Войти</span>
+                <LogOut className={styles.navMenu__icon} />
+                <span className={styles.navMenu__text}>Выйти</span>
               </Link>
             </DropdownMenu.Item>
           </DropdownMenu.Content>
