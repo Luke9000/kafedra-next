@@ -10,10 +10,9 @@ import { usePathname } from "next/navigation";
 
 import { DropdownMenuSeparator } from "@radix-ui/react-dropdown-menu";
 
-import { LogIn,LogOut } from "lucide-react";
-import { getUserRole } from "./userRole";
+import { LogIn, LogOut } from "lucide-react";
 import { useEffect } from "react";
-import { POST } from "@/app/[locale]/auth/signout/route";
+import { getUserRole } from "./userRole";
 
 
   const handleSignOut = async () => {
