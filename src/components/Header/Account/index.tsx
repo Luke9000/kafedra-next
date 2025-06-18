@@ -11,14 +11,22 @@ import { usePathname } from "next/navigation";
 import { DropdownMenuSeparator } from "@radix-ui/react-dropdown-menu";
 
 import { LogIn } from "lucide-react";
-import { useUserRole } from "./useUserRole";
+import { getUserRole } from "./userRole";
+import { useEffect } from "react";
 
 const DropdownMenuDemo = () => {
   const path = usePathname();
-  const role = useUserRole();
+
+
+useEffect(() => {
+  getUserRole().then(role => {
+    console.log('role:', role)
+
+  })
+}, [])
+
   return (
     <div>
-      <p>{role.role}</p>
       <DropdownMenu.Root>
         <DropdownMenu.Trigger asChild>
           <button className={styles.IconButton} aria-label="Customise options">
