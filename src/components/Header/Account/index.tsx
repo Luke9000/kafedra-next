@@ -9,12 +9,10 @@ import styles from "./styles.module.css";
 
 import { DropdownMenuSeparator } from "@radix-ui/react-dropdown-menu";
 
-import { LogIn, LogOut,ClipboardList, IdCard } from "lucide-react";
+import { LogIn, LogOut, ClipboardList, IdCard } from "lucide-react";
 import { useEffect, useState } from "react";
 import { getUserRole } from "./userRole";
 import { redirect } from "next/navigation";
-import { createClient } from "@/utils/supabase/client";
-import { jwtDecode } from "jwt-decode";
 
 const DropdownMenuDemo = () => {
   const [userRole, setUserRole] = useState<string | null>("");
@@ -22,30 +20,15 @@ const DropdownMenuDemo = () => {
     await fetch("auth/signout", { method: "POST" });
     redirect("/login");
   }
-const supabase = createClient();
+
   const path = usePathname();
 
- useEffect(() => {
-    // при монтировании – получаем роль один раз
-    getUserRole().then(setUserRole);
-
-    // подписываемся на все события auth (login, logout, token refresh)
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      if (session?.access_token) {
-        // при любом логине/рефреше токена – читаем новую роль
-        const jwt = jwtDecode<{ user_role?: string }>(session.access_token);
-        setUserRole(jwt.user_role ?? "");
-      } else {
-        // при логауте – сбрасываем роль
-        setUserRole("");
-      }
+  useEffect(() => {
+    getUserRole().then((role) => {
+      setUserRole(() => role);
+      console.log("role:", role);
     });
-
-    // отписываемся при анмаунте
-    return () => {
-      subscription.unsubscribe();
-    };
-  }, []);
+  }, [path]);
 
   return (
     <div>
@@ -57,61 +40,65 @@ const supabase = createClient();
         </DropdownMenu.Trigger>
         <DropdownMenu.Portal>
           <DropdownMenu.Content className={styles.Content} sideOffset={5}>
-          {userRole === "" || userRole === null  ? (
-            // НЕ залогинен
-            <DropdownMenu.Item className={styles.Item}>
-              <Link
-                href={"/login"}
-                className={clsx(styles.navMenu, {
-                  [styles.activeLink]: path === "/login",
-                })}
-              >
-                <LogIn className={styles.navMenu__icon} />
-                <span className={styles.navMenu__text}>Войти</span>
-              </Link>
-            </DropdownMenu.Item>
-          ) : (
-            // Залогинен
-            <>
-              {/* Ссылка на аккаунт */}
+            {userRole === "" || userRole === null ? (
+              // НЕ залогинен
               <DropdownMenu.Item className={styles.Item}>
                 <Link
-                  href={"/account"}
+                  href={"/login"}
                   className={clsx(styles.navMenu, {
-                    [styles.activeLink]: path === "/account",
+                    [styles.activeLink]: path === "/login",
                   })}
                 >
-                  <IdCard className={styles.navMenu__icon} />
-                  <span className={styles.navMenu__text}>Аккаунт</span>
+                  <LogIn className={styles.navMenu__icon} />
+                  <span className={styles.navMenu__text}>Войти</span>
                 </Link>
               </DropdownMenu.Item>
-
-              {/* Если админ - показываем админку */}
-              {userRole === "admin" && (
+            ) : (
+              // Залогинен
+              <>
+                {/* Ссылка на аккаунт */}
                 <DropdownMenu.Item className={styles.Item}>
                   <Link
-                    href={"/dashboard"}
+                    href={"/account"}
                     className={clsx(styles.navMenu, {
-                      [styles.activeLink]: path === "/dashboard",
+                      [styles.activeLink]: path === "/account",
                     })}
                   >
-                    <ClipboardList className={styles.navMenu__icon} />
-                    <span className={styles.navMenu__text}>Админка</span>
+                    <IdCard className={styles.navMenu__icon} />
+                    <span className={styles.navMenu__text}>Аккаунт</span>
                   </Link>
                 </DropdownMenu.Item>
-              )}
 
-              {/* Разделитель + выход */}
-              <DropdownMenuSeparator />
-              <DropdownMenu.Item className={styles.Item} asChild>
-                <div className={styles.navMenu} onClick={handleSignOut}>
-                  <LogOut className={styles.navMenu__icon} />
-                  <span className={styles.navMenu__text}>Выйти</span>
-                </div>
-              </DropdownMenu.Item>
-            </>
-          )}
-        </DropdownMenu.Content>
+                {/* Если админ - показываем админку */}
+                {userRole === "admin" && (
+                  <DropdownMenu.Item className={styles.Item}>
+                    <Link
+                      href={"/dashboard"}
+                      className={clsx(styles.navMenu, {
+                        [styles.activeLink]: path === "/dashboard",
+                      })}
+                    >
+                      <ClipboardList className={styles.navMenu__icon} />
+                      <span className={styles.navMenu__text}>Админка</span>
+                    </Link>
+                  </DropdownMenu.Item>
+                )}
+
+                {/* Разделитель + выход */}
+                <DropdownMenuSeparator />
+                <DropdownMenu.Item className={styles.Item} asChild>
+                  <Link
+                    href={"/login"}
+                    className={styles.navMenu}
+                    onClick={handleSignOut}
+                  >
+                    <LogOut className={styles.navMenu__icon} />
+                    <span className={styles.navMenu__text}>Выйти</span>
+                  </Link>
+                </DropdownMenu.Item>
+              </>
+            )}
+          </DropdownMenu.Content>
         </DropdownMenu.Portal>
       </DropdownMenu.Root>
     </div>

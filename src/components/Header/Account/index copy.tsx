@@ -28,7 +28,7 @@ const DropdownMenuDemo = () => {
       setUserRole(() => role);
       console.log("role:", role);
     });
-  }, []);
+  }, [path]);
 
   return (
     <div>
