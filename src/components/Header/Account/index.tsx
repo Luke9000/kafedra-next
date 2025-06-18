@@ -6,23 +6,19 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { DropdownMenu } from "radix-ui";
 import styles from "./styles.module.css";
-import { useRouter } from "next/navigation";
-import { DropdownMenuSeparator } from "@radix-ui/react-dropdown-menu";
 
-import { LogIn, LogOut, ClipboardList, IdCard } from "lucide-react";
+import { ClipboardList, IdCard, LogIn, LogOut } from "lucide-react";
+import { redirect } from "next/navigation";
 import { useEffect, useState } from "react";
 import { getUserRole } from "./userRole";
-import { redirect } from "next/navigation";
 
 const DropdownMenuDemo = () => {
   const [userRole, setUserRole] = useState<string | null>("");
   async function handleSignOut() {
     await fetch("auth/signout", { method: "POST" });
-    router.refresh();
     redirect("/login");
     
   }
-  const router = useRouter();
   const path = usePathname();
 
   useEffect(() => {
@@ -87,12 +83,13 @@ const DropdownMenuDemo = () => {
                 )}
 
                 {/* Разделитель + выход */}
-                <DropdownMenuSeparator />
                 <DropdownMenu.Item className={styles.Item}>
-                  <div className={styles.navMenu} onClick={handleSignOut}>
+                  <Link href={'/login'} className={clsx(styles.navMenu, {
+                        [styles.activeLink]: path === "/login",
+                      })} onClick={handleSignOut}>
                     <LogOut className={styles.navMenu__icon} />
                     <span className={styles.navMenu__text}>Выйти</span>
-                  </div>
+                  </Link>
                 </DropdownMenu.Item>
               </>
             )}
