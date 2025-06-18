@@ -30,7 +30,6 @@ const DropdownMenuDemo = () => {
 
   return (
     <div>
-      {/* <h3>{path}</h3> */}
       <DropdownMenu.Root>
         <DropdownMenu.Trigger asChild>
           <button
@@ -42,7 +41,7 @@ const DropdownMenuDemo = () => {
           </button>
         </DropdownMenu.Trigger>
         <DropdownMenu.Portal>
-          <DropdownMenu.Content className={styles.Content} sideOffset={5}>
+          <DropdownMenu.Content key={pathtext} className={styles.Content} sideOffset={5}>
             {userRole === "" || userRole === null ? (
               // НЕ залогинен
               <DropdownMenu.Item className={styles.Item}>

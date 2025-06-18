@@ -5,8 +5,7 @@ import styles from "./styles.module.css";
 // import MapPinnedIcon from "../../shared/assets/icons/svg-raw/MapPinnedIcon.svg?react";
 // import Mail from "../../shared/assets/icons/svg-raw/Mail.svg?react";
 
-import { Phone, MapPinnedIcon, Mail, ExternalLink} from "lucide-react";
-import Link from 'next/link'
+import { ExternalLink, Mail, MapPinnedIcon, Phone } from "lucide-react";
 
 const index = () => {
   return (
@@ -130,12 +129,12 @@ const index = () => {
         </a>
       </div>
 
-      <hr></hr>
+      {/* <hr></hr>
       <div className={styles.urlWrapper}>
         <Link href="/login">
           <p className="alt">Панель администратора</p>
         </Link>
-      </div>
+      </div> */}
     </footer>
   );
 };
