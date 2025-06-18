@@ -35,7 +35,8 @@ export default function AccountForm({ user }: { user: User | null }) {
         setQr(data.qr);
       }
     } catch (error) {
-      alert("Error loading user data!" + { error });
+      // alert("Error loading user data!" + { error });
+      console.log(error);
     } finally {
       // setLoading(false)
     }

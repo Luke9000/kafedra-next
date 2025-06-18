@@ -17,9 +17,21 @@ const DropdownMenuDemo = () => {
   const [userRole, setUserRole] = useState<string | null>("");
   async function handleSignOut() {
     await fetch("auth/signout", { method: "POST" });
+    await updateUserRole();
     redirect("/login");
   }
   const path = usePathname();
+
+  async function updateUserRole() {
+    try {
+      const role = await getUserRole();
+      setUserRole(role);
+      console.log("role:", role);
+    } catch (err) {
+      console.error("Не удалось получить роль", err);
+      setUserRole("");
+    }
+  }
 
   useEffect(() => {
     getUserRole().then((role) => {
@@ -29,8 +41,9 @@ const DropdownMenuDemo = () => {
   }, [path,pathtext]);
 
   return (
-    <div>
-      <DropdownMenu.Root>
+    <div onClick={updateUserRole}>
+      <h3>{pathtext}</h3>
+      <DropdownMenu.Root key={path}>
         <DropdownMenu.Trigger asChild>
           <button
             onClick={() => setPathtext((pathtext? pathtext + 1: 999))}
@@ -41,7 +54,7 @@ const DropdownMenuDemo = () => {
           </button>
         </DropdownMenu.Trigger>
         <DropdownMenu.Portal>
-          <DropdownMenu.Content key={pathtext} className={styles.Content} sideOffset={5}>
+          <DropdownMenu.Content className={styles.Content} sideOffset={5}>
             {userRole === "" || userRole === null ? (
               // НЕ залогинен
               <DropdownMenu.Item className={styles.Item}>
@@ -88,8 +101,8 @@ const DropdownMenuDemo = () => {
 
                 {/* Разделитель + выход */}
                 <DropdownMenu.Item className={styles.Item}>
-                  <Link
-                    href={"/login"}
+                  <div
+                   
                     className={clsx(styles.navMenu, {
                       [styles.activeLink]: path === "/login",
                     })}
@@ -97,7 +110,7 @@ const DropdownMenuDemo = () => {
                   >
                     <LogOut className={styles.navMenu__icon} />
                     <span className={styles.navMenu__text}>Выйти</span>
-                  </Link>
+                  </div>
                 </DropdownMenu.Item>
               </>
             )}
