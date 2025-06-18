@@ -1,0 +1,211 @@
+.Content,
+.SubContent {
+	min-width: 220px;
+	background-color: white;
+	border-radius: 6px;
+	padding: 5px;
+	/* box-shadow:
+		0px 10px 38px -10px rgba(22, 23, 24, 0.35),
+		0px 10px 20px -15px rgba(22, 23, 24, 0.2); */
+	animation-duration: 400ms;
+	animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+	will-change: transform, opacity;
+	&[data-side="top"] {
+		animation-name: slideDownAndFade;
+	}
+	&[data-side="right"] {
+		animation-name: slideLeftAndFade;
+	}
+	&[data-side="bottom"] {
+		animation-name: slideUpAndFade;
+	}
+	&[data-side="left"] {
+		animation-name: slideRightAndFade;
+	}
+}
+
+.Item,
+.CheckboxItem,
+.RadioItem,
+.SubTrigger {
+	font-size: 13px;
+	line-height: 1;
+	color: var(--text-color-dull);
+	border-radius: 3px;
+	display: flex;
+	align-items: center;
+	height: 45px;
+	padding: 0 5px;
+	position: relative;
+	padding-left: 25px;
+	user-select: none;
+	outline: none;
+	&[data-disabled] {
+		color: var(--mauve-8);
+		pointer-events: none;
+	}
+	&[data-highlighted] {
+		background-color: var(--text-color-bright);
+		color: var(--text-color-dull-2);
+	}
+}
+
+.SubTrigger[data-state="open"]:not([data-highlighted], [data-disabled]) {
+	background-color: var(--violet-4);
+	color: var(--violet-11);
+}
+
+.Label {
+	padding-left: 25px;
+	font-size: 12px;
+	line-height: 25px;
+	color: var(--text-color-regular);
+}
+
+.Separator {
+	height: 1px;
+	background-color: var(--text-color-regular);
+	margin: 5px;
+}
+
+.ItemIndicator {
+	position: absolute;
+	left: 0;
+	width: 25px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.Arrow {
+	fill: white;
+}
+
+.IconButton {
+	all: unset;
+	font-family: inherit;
+	border-radius: .2rem;
+	height: 26px;
+	width: 29px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--text-color-regular);
+	background-color: var(--text-color-regular);
+	/* box-shadow: 0 2px 10px var(--text-color-regular); */
+	user-select: none;
+	&:hover {
+		cursor: pointer;
+		@media (min-width:1024px) {
+			background-color: var(--text-color-regular);
+		}
+		
+	}
+	/* &:focus {
+		 box-shadow: 0 0 0 2px black; 
+         background-color: var(--text-color-bright); 
+	} */
+}
+
+.RightSlot {
+	margin-left: auto;
+	padding-left: 20px;
+	color: var(--mauve-11);
+	[data-highlighted] > & {
+		color: white;
+	}
+	[data-disabled] & {
+		color: var(--mauve-8);
+	}
+}
+
+@keyframes slideUpAndFade {
+	from {
+		opacity: 0;
+		transform: translateY(2px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes slideRightAndFade {
+	from {
+		opacity: 0;
+		transform: translateX(-2px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes slideDownAndFade {
+	from {
+		opacity: 0;
+		transform: translateY(-2px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes slideLeftAndFade {
+	from {
+		opacity: 0;
+		transform: translateX(2px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+
+
+
+.navMenu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-xs);
+  stroke: #727272;
+  color: #727272;
+  fill: #727272;
+border: none !important;
+  
+}
+
+.navMenu__text {
+  font-weight: 300;
+  color: inherit;
+  font-size: 0.5rem;
+  @media (max-width: 768px) {
+    font-size: 0.7rem;
+  }
+}
+
+.navMenu__icon {
+  stroke: inherit;
+}
+
+.activeLink {
+    border: none !important;
+    fill: white;
+    stroke: white;
+    color: white !important;
+}
+
+.Item:has(.activeLink) {
+    background-color: var(--text-color-bright);
+}
+
+
+
+
+
+
+/***************/
+
