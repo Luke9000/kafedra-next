@@ -1,10 +1,10 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Work } from "../../../types";
+import { useState } from "react";
 import { toast } from "sonner";
+import { Work } from "../../../types";
 
 import {
   Sheet,
@@ -13,30 +13,32 @@ import {
   SheetDescription,
   SheetFooter,
   SheetHeader,
-  SheetTitle,
-  SheetTrigger,
+  SheetTitle
 } from "@/components/ui/sheet";
 
-type AddButtonProps = {
-  onAdd: (data: Omit<Work, "id" | "created_at">) => void;
+type UpdateMenuProps = {
+  work: Work;
+  onUpdate: (data: Omit<Work, "id" | "created_at">) => void;
+  onClose: () => void;
 };
 
-export function AddButton({ onAdd }: AddButtonProps) {
-  const [title, setTitle] = useState("");
-  const [type, setType] = useState("");
-  const [author, setAuthor] = useState("");
-  const [year, setYear] = useState("");
-  const [images, setImages] = useState("");
+export function UpdateMenu({ work, onUpdate, onClose }: UpdateMenuProps) {
+ const [title, setTitle] = useState<string>(work.title ?? "")
+  const [type, setType] = useState<string>(work.type ?? "")
+  const [author, setAuthor] = useState<string>(work.author ?? "")
+  const [year, setYear] = useState<string>(work.year !== null ? String(work.year) : "")
+  const [images, setImages] = useState<string>(JSON.stringify(work.images))
 
-  const handleAddClick = () => {
+  const handleUpdateClick = () => {
     let parsedImages: string[] = [];
     try {
       parsedImages = JSON.parse(images || "[]");
-    } catch (error) {
-      toast("Некорректный формат списка изображений: " + error);
+    } catch {
+      toast("Некорректный формат изображений");
       return;
     }
-    onAdd({
+
+    onUpdate({
       title,
       type,
       author,
@@ -47,14 +49,11 @@ export function AddButton({ onAdd }: AddButtonProps) {
 
   return (
     <div className="flex justify-end">
-      <Sheet>
-        <SheetTrigger asChild>
-          <Button variant="default">+</Button>
-        </SheetTrigger>
+      <Sheet open onOpenChange={onClose}>
         <SheetContent>
           <SheetHeader>
-            <SheetTitle>Добавить работу</SheetTitle>
-            <SheetDescription>Заполните поля ниже</SheetDescription>
+            <SheetTitle>Изменить работу</SheetTitle>
+            <SheetDescription>Измените поля ниже</SheetDescription>
           </SheetHeader>
           <div className="text-xs grid flex-1 auto-rows-min gap-4 px-4 font-def overflow-auto">
             <div className="grid gap-3">
@@ -99,8 +98,8 @@ export function AddButton({ onAdd }: AddButtonProps) {
             </div>
           </div>
           <SheetFooter className="font-def flex flex-row justify-center align-center">
-            <Button className="h-7" type="button" onClick={handleAddClick}>
-              Добавить
+            <Button className="h-7" type="button" onClick={handleUpdateClick}>
+              Изменить
             </Button>
             <SheetClose asChild>
               <Button className="h-7" variant="outline">

@@ -217,9 +217,15 @@ main {
 section {
   background-color: #ffffff;
   padding: 0 var(--padding-hor);
-  padding-bottom: 5vmax;
-  padding-top: 0.1rem;
+  /* padding-bottom: 5vmax;
+  padding-top: 0.1rem; */
   display: block;
+}
+
+.main_section {
+ padding-bottom: 5vmax;
+  padding-top: 0.1rem;
+
 }
 
 section:nth-of-type(2n) {

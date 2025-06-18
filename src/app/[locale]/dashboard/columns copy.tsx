@@ -15,9 +15,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { toast } from "sonner";
 
-export const columns = (
-  onEdit: (work: Work) => void
-): ColumnDef<Work>[] => [
+export const columns: ColumnDef<Work>[] = [
   {
     accessorKey: "id",
     header: () => {
@@ -85,7 +83,6 @@ export const columns = (
             <DropdownMenuItem
               // onClick={() => props.onEdit(work)}
               className="sm:my-12 md:my-3 lg:my-0"
-              onClick={() => onEdit(work)}
             >
               Изменить
             </DropdownMenuItem>

@@ -8,11 +8,11 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <Hero></Hero>
-      <section className="section_border">
+      <section className="section_border main_section">
         <h1 className={styles.left5vw}>СФЕРЫ ДЕЯТЕЛЬНОСТИ</h1>
         <Table></Table>
       </section>
-      <section>
+      <section className="main_section">
         <div className={styles.fullScreen}>
           <h1 className={clsx(styles.left5vw, "alt")}>
             НАПРАВЛЕНИЯ ПОДГОТОВКИ

@@ -2,7 +2,6 @@
 import { AddButton } from "./AddButton";
 import { ADD_ROW } from "./responses";
 import { toast } from "sonner";
-import type { Work } from "../../../types";
 
 import {
   ColumnDef,
@@ -20,23 +19,20 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { addWork, updateWork } from "./actions";
-import { useState } from "react";
-import { UpdateMenu } from "./UpdateMenu";
+import { addWork } from "./actions";
 
-
-interface DataTableProps {
-  
-  columns: (onEdit: (row: Work) => void) => ColumnDef<Work>[]
-  data: Work[]
+interface DataTableProps<TData, TValue> {
+  columns: ColumnDef<TData, TValue>[];
+  data: TData[];
 }
 
-export function DataTable({ columns, data }: DataTableProps) {
-  const [editWork, setEditWork] = useState<Work | null>(null);
-  const cols = columns(setEditWork);
+export function DataTable<TData, TValue>({
+  columns,
+  data,
+}: DataTableProps<TData, TValue>) {
   const table = useReactTable({
     data,
-    columns: cols,
+    columns,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
   });
@@ -99,23 +95,6 @@ export function DataTable({ columns, data }: DataTableProps) {
           )}
         </TableBody>
       </Table>
-
-      {editWork && (
-        <UpdateMenu
-          work={editWork}
-          onClose={() => setEditWork(null)}
-          onUpdate={async (data) => {
-            const result = await updateWork({ ...data, id: editWork.id });
-            if (result.success) {
-              toast("Успешно обновлено");
-              setEditWork(null);
-              //перезапросить данные
-            } else {
-              toast(`Ошибка: ${result.error}`);
-            }
-          }}
-        />
-      )}
     </div>
   );
 }

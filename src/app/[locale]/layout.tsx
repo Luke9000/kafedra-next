@@ -8,6 +8,7 @@ import { notFound } from "next/navigation";
 import "./globals.css";
 import styles from "./layout.module.css";
 import Footer from "@/components/Footer";
+import { Toaster } from "@/components/ui/sonner";
 
 const onest = localFont({
   src: "../../fonts/Onest-VariableFont_wght.ttf",
@@ -78,6 +79,7 @@ export default async function LocaleLayout({
           <Header></Header>
           <main className={styles.main}>{children}</main>
           <Footer></Footer>
+          <Toaster />
         </NextIntlClientProvider>
       </body>
     </html>
