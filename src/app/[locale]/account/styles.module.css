@@ -40,6 +40,7 @@
 .qr {
 
     margin-top: 8vh;
+    width: 90%;
 }
 
 .data {
@@ -48,6 +49,11 @@
 
 .imageBlock {
     margin-bottom: 2vh;
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
     text-align: center;
     
 }
