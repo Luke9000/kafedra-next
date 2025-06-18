@@ -1,0 +1,53 @@
+
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh;
+    gap:5rem;
+    text-align: center;
+    flex-wrap: wrap;
+    @media (max-width:900px) {
+        gap:0rem;
+    }
+}
+
+.small {
+    text-align: center;
+}
+
+.personData {
+    margin-top: 1rem 0;
+    text-align: center;
+    margin-top: 1vh !important;
+}
+
+.subImage {
+
+   
+    margin-bottom: 1rem;
+}
+
+.hash {
+    margin-bottom: 0 !important;
+    margin-top: 1vh !important;
+    /* margin: 0 !important;
+    padding: 0 !important; */
+}
+
+.qr {
+
+    margin-top: 8vh;
+}
+
+.data {
+    text-align: center;
+}
+
+.imageBlock {
+    margin-bottom: 2vh;
+    text-align: center;
+    
+}

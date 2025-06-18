@@ -13,11 +13,11 @@ import { useEffect, useState } from "react";
 import { getUserRole } from "./userRole";
 
 const DropdownMenuDemo = () => {
+  const [pathtext, setPathtext] = useState<number>();
   const [userRole, setUserRole] = useState<string | null>("");
   async function handleSignOut() {
     await fetch("auth/signout", { method: "POST" });
     redirect("/login");
-    
   }
   const path = usePathname();
 
@@ -26,13 +26,18 @@ const DropdownMenuDemo = () => {
       setUserRole(() => role);
       console.log("role:", role);
     });
-  }, []);
+  }, [path,pathtext]);
 
   return (
     <div>
+      {/* <h3>{path}</h3> */}
       <DropdownMenu.Root>
         <DropdownMenu.Trigger asChild>
-          <button className={styles.IconButton} aria-label="Customise options">
+          <button
+            onClick={() => setPathtext((pathtext? pathtext + 1: 999))}
+            className={styles.IconButton}
+            aria-label="Customise options"
+          >
             <User />
           </button>
         </DropdownMenu.Trigger>
@@ -84,9 +89,13 @@ const DropdownMenuDemo = () => {
 
                 {/* Разделитель + выход */}
                 <DropdownMenu.Item className={styles.Item}>
-                  <Link href={'/login'} className={clsx(styles.navMenu, {
-                        [styles.activeLink]: path === "/login",
-                      })} onClick={handleSignOut}>
+                  <Link
+                    href={"/login"}
+                    className={clsx(styles.navMenu, {
+                      [styles.activeLink]: path === "/login",
+                    })}
+                    onClick={handleSignOut}
+                  >
                     <LogOut className={styles.navMenu__icon} />
                     <span className={styles.navMenu__text}>Выйти</span>
                   </Link>
