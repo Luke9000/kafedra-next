@@ -14,23 +14,14 @@ import { LogIn, LogOut } from "lucide-react";
 import { useEffect } from "react";
 import { getUserRole } from "./userRole";
 
-
-  const handleSignOut = async () => {
-    await fetch("/signout", { method: "POST" })
-
-
-  }
-
 const DropdownMenuDemo = () => {
   const path = usePathname();
 
-
-useEffect(() => {
-  getUserRole().then(role => {
-    console.log('role:', role)
-
-  })
-}, [])
+  useEffect(() => {
+    getUserRole().then((role) => {
+      console.log("role:", role);
+    });
+  }, []);
 
   return (
     <div>
@@ -54,16 +45,11 @@ useEffect(() => {
               </Link>
             </DropdownMenu.Item>
             <DropdownMenuSeparator></DropdownMenuSeparator>
-            <DropdownMenu.Item className={styles.Item} onClick={handleSignOut}>
-              <Link
-                href={"/"}
-                className={clsx(styles.navMenu, {
-                  [styles.activeLink]: false,
-                })}
-              >
+            <DropdownMenu.Item className={styles.Item}>
+              <form action="/signout" method="post" className={styles.navMenu}>
                 <LogOut className={styles.navMenu__icon} />
                 <span className={styles.navMenu__text}>Выйти</span>
-              </Link>
+              </form>
             </DropdownMenu.Item>
           </DropdownMenu.Content>
         </DropdownMenu.Portal>
@@ -73,4 +59,3 @@ useEffect(() => {
 };
 
 export default DropdownMenuDemo;
-
