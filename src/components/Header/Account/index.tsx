@@ -6,7 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { DropdownMenu } from "radix-ui";
 import styles from "./styles.module.css";
-
+import { useRouter } from "next/navigation";
 import { DropdownMenuSeparator } from "@radix-ui/react-dropdown-menu";
 
 import { LogIn, LogOut, ClipboardList, IdCard } from "lucide-react";
@@ -18,9 +18,11 @@ const DropdownMenuDemo = () => {
   const [userRole, setUserRole] = useState<string | null>("");
   async function handleSignOut() {
     await fetch("auth/signout", { method: "POST" });
+    router.refresh();
     redirect("/login");
+    
   }
-
+  const router = useRouter();
   const path = usePathname();
 
   useEffect(() => {
@@ -28,7 +30,7 @@ const DropdownMenuDemo = () => {
       setUserRole(() => role);
       console.log("role:", role);
     });
-  }, [path]);
+  }, []);
 
   return (
     <div>
@@ -86,15 +88,11 @@ const DropdownMenuDemo = () => {
 
                 {/* Разделитель + выход */}
                 <DropdownMenuSeparator />
-                <DropdownMenu.Item className={styles.Item} asChild>
-                  <Link
-                    href={"/login"}
-                    className={styles.navMenu}
-                    onClick={handleSignOut}
-                  >
+                <DropdownMenu.Item className={styles.Item}>
+                  <div className={styles.navMenu} onClick={handleSignOut}>
                     <LogOut className={styles.navMenu__icon} />
                     <span className={styles.navMenu__text}>Выйти</span>
-                  </Link>
+                  </div>
                 </DropdownMenu.Item>
               </>
             )}
